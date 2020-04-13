@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">FizzBuzz</string>
+    <string name="shout_button">Shout</string>
+    <string name="empty_message">N/A</string>
+</resources>
