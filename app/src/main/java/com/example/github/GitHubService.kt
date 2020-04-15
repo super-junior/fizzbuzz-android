@@ -1,4 +1,4 @@
-package com.example.fizzbuzz
+package com.example.github
 
 import retrofit2.Call
 import retrofit2.http.GET

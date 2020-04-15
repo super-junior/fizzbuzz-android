@@ -1,12 +1,13 @@
-package com.example.fizzbuzz
+package com.example.github
 
 import androidx.lifecycle.MutableLiveData
 import retrofit2.*
 
-class GithubHttpclient : GithubRepository {
+class GithubHttpclient :
+	IGithubHttpClient {
 
-	override fun getRepository(name: String): MutableLiveData<String> {
-        val retrofit = Retrofit.Builder()
+	override fun retrieveRepo(name: String): MutableLiveData<String> {
+		val retrofit = Retrofit.Builder()
 			.build()
 		val githubService = retrofit.create(GitHubService::class.java)
 
@@ -27,4 +28,7 @@ class GithubHttpclient : GithubRepository {
 		return data;
 	}
 
+}
+
+interface GithubHttpClient {
 }
