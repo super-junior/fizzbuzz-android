@@ -5,6 +5,7 @@ import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.matcher.ViewMatchers
+import com.example.fizzbuzz.domain.FizzBuzz
 import org.junit.Before
 import org.junit.Test
 
@@ -33,7 +34,8 @@ class MainActivityInstrumentedTest {
         Espresso.onView(ViewMatchers.withId(R.id.button)).perform(ViewActions.click())
 
         Espresso.onView(ViewMatchers.withId(R.id.message))
-            .check(ViewAssertions.matches(ViewMatchers.withText(FizzBuzz.check(15))))
+            .check(ViewAssertions.matches(ViewMatchers.withText(
+				FizzBuzz.check(15))))
     }
 
     @Test

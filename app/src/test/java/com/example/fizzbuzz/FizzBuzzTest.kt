@@ -1,5 +1,6 @@
 package com.example.fizzbuzz
 
+import com.example.fizzbuzz.domain.FizzBuzz
 import org.hamcrest.Matchers.equalTo
 import org.junit.Assert.assertThat
 import org.junit.Test

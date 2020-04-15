@@ -1,4 +1,4 @@
-package com.example.fizzbuzz
+package com.example.fizzbuzz.domain
 
 object FizzBuzz {
 
