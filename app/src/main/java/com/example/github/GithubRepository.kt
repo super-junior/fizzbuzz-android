@@ -6,8 +6,7 @@ class GithubRepository :
 	IGithubRepository {
 
 	override fun getRepository(githubRepositoryName: String): LiveData<String> {
-	   val githubHttpClient =
-		   GithubHttpclient()
+	   val githubHttpClient = Gi()
 	   return githubHttpClient.retrieveRepo(githubRepositoryName)
 	}
 
