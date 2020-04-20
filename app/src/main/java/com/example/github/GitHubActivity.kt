@@ -17,11 +17,11 @@ class GitHubActivity: AppCompatActivity() {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.github_activity)
 
-	    githubViewModel.repoString.observe(this, Observer<String>{
+	    githubViewModel.repoString.observe(this, Observer{
 			repo -> github_textview.text = repo.toString()
 		})
 
-		github_button.setOnClickListener() {
+		github_button.setOnClickListener {
 			lifecycleScope.launch {
 				getRepoName(github_input.text.toString())
 			}
@@ -29,7 +29,7 @@ class GitHubActivity: AppCompatActivity() {
 	}
 
 	suspend fun getRepoName(name: String) {
+			 github_textview.text = ""
 			 githubViewModel.getRepoName(name)
-		    github_textview.text = ""
 	}
 }

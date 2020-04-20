@@ -28,9 +28,8 @@
 
 		<TextView
 			android:id="@+id/github_textview"
-			android:layout_width="391dp"
-			android:layout_height="463dp"
-			android:layout_marginTop="156dp"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
 			app:layout_constraintBottom_toTopOf="@+id/github_button"
 			app:layout_constraintEnd_toEndOf="parent"
 			app:layout_constraintHorizontal_bias="0.392"
