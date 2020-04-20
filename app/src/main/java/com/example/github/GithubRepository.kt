@@ -1,7 +1,5 @@
 package com.example.github
 
-import androidx.lifecycle.LiveData
-
 class GithubRepository :
 	IGithubRepository {
 
