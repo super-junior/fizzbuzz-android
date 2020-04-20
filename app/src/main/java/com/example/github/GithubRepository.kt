@@ -5,9 +5,9 @@ import androidx.lifecycle.LiveData
 class GithubRepository :
 	IGithubRepository {
 
-	override fun getRepository(githubRepositoryName: String): LiveData<String> {
-	   val githubHttpClient = Gi()
-	   return githubHttpClient.retrieveRepo(githubRepositoryName)
+	override suspend fun getRepository(githubRepositoryName: String): String {
+	   val githubHttpClient = GithubHttpClient()
+	   return githubHttpClient.retrieveRepo().getRepo(githubRepositoryName)
 	}
 
 }

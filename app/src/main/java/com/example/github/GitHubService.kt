@@ -8,7 +8,7 @@ import retrofit2.http.Query
 interface GitHubService {
 
 
-	@GET("search/")
+	@GET("/search/repositories")
 
-	fun getRepo(@Query("q") name: String ): Call<String>;
+	suspend fun getRepo(@Query("q") name: String ): String;
 }
