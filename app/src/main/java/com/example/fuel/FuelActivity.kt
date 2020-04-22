@@ -2,16 +2,13 @@ package com.example.fuel
 
 import android.os.Bundle
 import android.util.Log
-import androidx.annotation.UiThread
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fizzbuzz.R
-import com.github.kittinunf.fuel.Fuel
 import com.github.kittinunf.fuel.core.ResponseDeserializable
-import com.github.kittinunf.fuel.core.isSuccessful
 import com.github.kittinunf.fuel.coroutines.awaitStringResponseResult
 import com.github.kittinunf.fuel.httpGet
-import com.google.gson.Gson
 import com.github.kittinunf.result.Result
+import com.google.gson.Gson
 import kotlinx.android.synthetic.main.fuel_activity.*
 import kotlinx.coroutines.runBlocking
 
@@ -28,26 +25,34 @@ class FuelActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fuel_activity)
 
-        getParcelsButton.setOnClickListener { getParcelsCallBag() }
+        getParcelsButton.setOnClickListener { getParcelsBlocking() }
     }
 
     private fun getParcelsBlocking() {
-        val x = Runnable {
-            val (_, _, result) = "https://5e9fe71011b078001679cfdb.mockapi.io/mock-dp/parcels/1".httpGet()
-                .responseString()
-            when (result) {
-                is Result.Failure -> {
-                    val ex = result.getException()
-                    println(ex)
-                }
-                is Result.Success -> {
-                    val data = result.get()
-                    Log.d("aaaa", data)
-                    println(data)
-                }
-            }
-        }
-        runOnUiThread(x)
+		//Call Tread function to run in another outside MainThread
+       Thread {
+		   val (_, _, result) = "https://5e9fe71011b078001679cfdb.mockapi.io/mock-dp/parcels/1".httpGet()
+			   .responseString()
+		   when (result) {
+			   is Result.Failure -> {
+				   val ex = result.getException()
+				   println(ex)
+			   }
+			   is Result.Success -> {
+				   val data = result.get()
+				   Log.d("network", data)
+				   println(data)
+				   //Update UI in UIThread
+				   runOnUiThread{
+					   textView.text = data
+				   }
+
+			   }
+		   }
+
+	   }.start()
+
+
     }
 
     private fun getParcelsCoroutine() {
