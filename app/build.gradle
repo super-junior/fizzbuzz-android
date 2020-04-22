@@ -8,6 +8,7 @@ android {
 	defaultConfig {
 		applicationId "com.example.fizzbuzz"
 		minSdkVersion 24
+
 		targetSdkVersion 28
 		versionCode 1
 		versionName "1.0"
@@ -53,6 +54,7 @@ android {
 
 	dependencies {
 		def activity_version = "1.1.0"
+		def koin_version = "2.1.5"
 
 		implementation fileTree(dir: 'libs', include: ['*.jar'])
 		implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -73,7 +75,7 @@ android {
 
 		implementation 'com.squareup.retrofit2:retrofit:2.8.1'
 		implementation 'com.google.code.gson:gson:2.8.5'
-		implementation 'com.squareup.retrofit2:converter-gson:2.8.0'
+		implementation 'com.squareup.retrofit2:converter-gson:2.8.1'
 		implementation 'com.squareup.retrofit2:converter-scalars:2.5.0'
 
 
@@ -83,6 +85,19 @@ android {
 
 		// Kotlin
 		implementation "androidx.activity:activity-ktx:$activity_version"
+
+		implementation "io.reactivex.rxjava3:rxkotlin:3.0.0"
+		implementation 'com.squareup.retrofit2:adapter-rxjava2:2.8.1'
+
+
+
+		implementation "org.koin:koin-android:$koin_version"
+		// or Koin for Lifecycle scoping
+		implementation "org.koin:koin-androidx-scope:$koin_version"
+		// or Koin for Android Architecture ViewModel
+		implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+		// or Koin for Android Fragment Factory (unstable version)
+		implementation "org.koin:koin-androidx-fragment:$koin_version"
 
 
 	}

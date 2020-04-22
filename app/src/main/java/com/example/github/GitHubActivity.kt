@@ -8,10 +8,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
 import com.example.fizzbuzz.R
 import kotlinx.android.synthetic.main.github_activity.*
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
+import kotlinx.coroutines.*
 
 class GitHubActivity: AppCompatActivity() {
 
@@ -26,11 +23,14 @@ class GitHubActivity: AppCompatActivity() {
 		})
 
 		github_button.setOnClickListener {
-			lifecycleScope.launch {
-				handleViewBeforeCall()
-				getRepoName(github_input.text.toString())
-			}
+
+			githubViewModel.getRepoNameRX(github_input.text.toString())
+
 		}
+
+
+
+
 	}
 
 	suspend fun getRepoName(name: String) {
@@ -48,5 +48,16 @@ class GitHubActivity: AppCompatActivity() {
 	fun handleViewBeforeCall(){
 		scrollview.visibility = View.INVISIBLE
 		progressBar.visibility= View.VISIBLE
+	}
+
+
+	fun hideLoading() {
+		scrollview.visibility = View.INVISIBLE
+		progressBar.visibility = View.VISIBLE
+	}
+
+	fun showLoading() {
+		scrollview.visibility = View.VISIBLE
+		progressBar.visibility = View.INVISIBLE
 	}
 }

@@ -4,5 +4,5 @@ import androidx.lifecycle.MutableLiveData
 
 interface IGithubHttpClient {
 
-	suspend fun retrieveRepo(): GitHubService
+	fun retrieveRepo(): GitHubService
 }
