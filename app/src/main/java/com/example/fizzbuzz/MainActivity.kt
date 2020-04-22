@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.example.fizzbuzz.domain.FizzBuzz
+import com.example.fuel.FuelActivity
 import com.example.github.GitHubActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
 
 			}
 		})
+
+        fuel_button.setOnClickListener {
+            val intent = Intent(this@MainActivity, FuelActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     fun onShoutButtonClicked(
