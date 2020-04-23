@@ -1,6 +1,8 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'koin'
+
 android {
 	compileSdkVersion 28
 	buildToolsVersion "28.0.3"
@@ -54,6 +56,7 @@ android {
 	dependencies {
 		def activity_version = "1.1.0"
 
+
 		implementation fileTree(dir: 'libs', include: ['*.jar'])
 		implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 		implementation 'androidx.appcompat:appcompat:1.1.0'
@@ -89,6 +92,23 @@ android {
 
 		// Kotlin
 		implementation "androidx.activity:activity-ktx:$activity_version"
+
+
+
+		def koin_version="2.1.5"
+
+
+		// Koin for Android
+		implementation "org.koin:koin-android:2.1.5"
+		// Koin AndroidX ViewModel features
+		implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+		// Koin AndroidX Fragment features
+		implementation "org.koin:koin-androidx-fragment:$koin_version"
+		// Koin AndroidX Experimental features
+		implementation "org.koin:koin-androidx-ext:$koin_version"
+
+		testImplementation "org.koin:koin-test:$koin_version"
+
 
 
 	}

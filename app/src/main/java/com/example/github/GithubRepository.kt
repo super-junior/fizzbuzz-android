@@ -1,10 +1,9 @@
 package com.example.github
 
-class GithubRepository :
-	IGithubRepository {
+class GithubRepository(private val githubHttpClient: IGithubHttpClient) : IGithubRepository {
+
 
 	override suspend fun getRepository(githubRepositoryName: String): String {
-	   val githubHttpClient = GithubHttpClient()
 	   return githubHttpClient.retrieveRepo().getRepo(githubRepositoryName)
 	}
 
