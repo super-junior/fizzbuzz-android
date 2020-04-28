@@ -16,36 +16,15 @@ class GitHubActivity: AppCompatActivity() {
 
 	private val githubViewModel: GithubViewModel by viewModel()
 
+	val fragmentmanager = supportFragmentManager
+	val fragmentTransaction = fragmentmanager.beginTransaction()
 	override fun onCreate(savedInstanceState: Bundle?) {
 		super.onCreate(savedInstanceState)
 		setContentView(R.layout.github_activity)
-
-	    githubViewModel.repoString.observe(this, Observer{
-			repo -> handleSuccessCall(repo)
-		})
-
-		github_button.setOnClickListener {
-			lifecycleScope.launch {
-				handleViewBeforeCall()
-				getRepoName(github_input.text.toString())
-			}
-		}
-	}
-
-	suspend fun getRepoName(name: String) {
-			 github_textview.text = ""
-			 githubViewModel.getRepoName(name)
+		val displayFragment = display()
+		fragmentTransaction.add(R.id.fragment_container, displayFragment)
+		fragmentTransaction.commit()
 
 	}
 
-	fun handleSuccessCall(repo: String){
-		github_textview.text = repo
-		scrollview.visibility = View.VISIBLE
-		progressBar.visibility = View.INVISIBLE
-
-	}
-	fun handleViewBeforeCall(){
-		scrollview.visibility = View.INVISIBLE
-		progressBar.visibility= View.VISIBLE
-	}
 }

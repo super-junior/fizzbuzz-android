@@ -1,27 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:app="http://schemas.android.com/apk/res-auto"
 	xmlns:tools="http://schemas.android.com/tools"
 	android:layout_width="match_parent"
-    android:layout_height="match_parent">
+	android:layout_height="match_parent">
 
 
 	<EditText
 		android:id="@+id/github_input"
-		android:layout_width="200dp"
-		android:layout_height="36dp"
-		android:layout_marginTop="28dp"
+		android:layout_width="223dp"
+		android:layout_height="33dp"
+		android:layout_marginTop="40dp"
 		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.498"
+		app:layout_constraintHorizontal_bias="0.085"
 		app:layout_constraintStart_toStartOf="parent"
 		app:layout_constraintTop_toTopOf="parent" />
 
 	<RelativeLayout
-		android:layout_width="430dp"
-		android:layout_height="459dp"
-		android:layout_marginStart="16dp"
-		android:layout_marginEnd="16dp"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginStart="8dp"
+		android:layout_marginEnd="8dp"
 		android:layout_marginBottom="8dp"
 		app:layout_constraintBottom_toBottomOf="parent"
 		app:layout_constraintEnd_toEndOf="parent"
@@ -29,48 +28,53 @@
 		app:layout_constraintTop_toTopOf="parent">
 
 		<ProgressBar
-			android:layout_centerHorizontal="true"
-			android:layout_centerVertical="true"
-			android:visibility="invisible"
 			android:id="@+id/progressBar"
 			style="?android:attr/progressBarStyle"
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
+			android:layout_centerHorizontal="true"
+			android:layout_centerVertical="true"
+			android:visibility="invisible"
 			tools:layout_editor_absoluteX="167dp"
 			tools:layout_editor_absoluteY="73dp" />
 
-
-		<ScrollView
-			android:id="@+id/scrollview"
+		<androidx.fragment.app.FragmentContainerView
+			android:id="@+id/fragment_container"
 			android:layout_width="match_parent"
-			android:layout_height="match_parent"
-			android:visibility="visible"
-			tools:layout_editor_absoluteX="8dp">
+			android:layout_height="wrap_content">
+				<fragment
+					android:id="@+id/search_list"
+					android:name="com.example.github.display"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content" />
 
-			<TextView
-				android:id="@+id/github_textview"
-				android:layout_width="match_parent"
-				android:layout_height="wrap_content"
-				app:layout_constraintBottom_toTopOf="@+id/github_button"
-				app:layout_constraintEnd_toEndOf="parent"
-				app:layout_constraintHorizontal_bias="0.392"
-				app:layout_constraintStart_toStartOf="parent"
-				app:layout_constraintTop_toTopOf="parent"
-				app:layout_constraintVertical_bias="0.0" />
-
-		</ScrollView>
+		</androidx.fragment.app.FragmentContainerView>
 
 	</RelativeLayout>
+
 	<Button
 		android:id="@+id/github_button"
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
-		android:layout_marginBottom="24dp"
+		android:layout_marginStart="20dp"
+		android:layout_marginTop="40dp"
 		android:text="Search"
-		app:layout_constraintBottom_toBottomOf="parent"
-		app:layout_constraintEnd_toEndOf="parent"
-		app:layout_constraintHorizontal_bias="0.498"
-		app:layout_constraintStart_toStartOf="parent" />
+		app:layout_constraintStart_toStartOf="@+id/guideline"
+		app:layout_constraintTop_toTopOf="parent"
+		tools:layout_editor_absoluteY="64dp" />
 
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+		app:layout_constraintGuide_begin="274dp" />
+
+	<androidx.constraintlayout.widget.Guideline
+		android:id="@+id/guideline2"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+		app:layout_constraintGuide_begin="111dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
