@@ -8,13 +8,15 @@
 
 	<EditText
 		android:id="@+id/github_input"
+		android:inputType="text"
 		android:layout_width="223dp"
 		android:layout_height="33dp"
 		android:layout_marginTop="40dp"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintHorizontal_bias="0.085"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toTopOf="parent" />
+		app:layout_constraintTop_toTopOf="parent"
+		android:autofillHints="" />
 
 	<RelativeLayout
 		android:layout_width="match_parent"
@@ -42,12 +44,6 @@
 			android:id="@+id/fragment_container"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content">
-				<fragment
-					android:id="@+id/search_list"
-					android:name="com.example.github.display"
-					android:layout_width="match_parent"
-					android:layout_height="wrap_content" />
-
 		</androidx.fragment.app.FragmentContainerView>
 
 	</RelativeLayout>
