@@ -17,7 +17,8 @@ class GithubViewModel( private val githubRepositoryName  : IGithubRepository) : 
    suspend fun getRepoName(name: String) {
 	   viewModelScope.launch {
 		   val repoName =  githubRepositoryName.getRepository(name)
-		   Log.d("network111", repoName)
+
+		   Log.d("network", repoName)
 		   repoString.postValue(repoName.removeSurrounding(""))
 
 	   }

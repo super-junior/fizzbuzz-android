@@ -4,7 +4,7 @@ class GithubRepository(private val githubHttpClient: IGithubHttpClient) : IGithu
 
 
 	override suspend fun getRepository(githubRepositoryName: String): String {
-	   return githubHttpClient.retrieveRepo().getRepo(githubRepositoryName)
+		  return githubHttpClient.retrieveRepo().getRepo(githubRepositoryName)
 	}
 
 }

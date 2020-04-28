@@ -6,8 +6,6 @@ import org.koin.dsl.module
 
 val mainModule = module{
 
-
-
 	viewModel {
 		GithubViewModel(get())
 	}
